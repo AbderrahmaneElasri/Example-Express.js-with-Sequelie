@@ -1,0 +1,25 @@
+{
+  "name": "cloud-computing-eval",
+  "version": "1.0.0",
+  "description": "Projet d'évalutation Cloud Computing : API restfull nodeJS",
+  "main": "index.js",
+  "author": "Abderrahmane ELASRI",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -r esm index.js",
+    "start": "node -r esm index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "curl": "^0.1.4",
+    "esm": "^3.1.4",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.7",
+    "morgan": "^1.9.1",
+    "sequelize": "^4.42.0",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

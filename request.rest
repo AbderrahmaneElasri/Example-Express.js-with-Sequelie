@@ -1,0 +1,67 @@
+# récupérer toutes les villes
+GET http://localhost:3000/ville
+
+### Créer une ville
+# @name createVille
+POST http://localhost:3000/ville HTTP/1.1
+content-type: application/json
+
+{
+  "nom": "Nairobi",
+  "pays": "Guinee" 
+}
+
+### Modifier une ville
+# L'id correspond à la ville précédemment créée
+@villeId = {{createVille.response.body.$.id}}
+PUT http://localhost:3000/ville/{{villeId}} HTTP/1.1
+content-type: application/json
+
+{
+  "nom": "Nairobi",
+  "pays": "Keyna"
+}
+
+### Récupérer une ville unique
+
+@villeId = {{createVille.response.body.$.id}}
+GET http://localhost:3000/ville/{{villeId}} HTTP/1.1
+
+### Supprimer une ville
+@villeId = {{createVille.response.body.$.id}}
+DELETE http://localhost:3000/ville/{{villeId}} HTTP/1.1
+
+### Réccupérer tous les séjours
+
+GET http://localhost:3000/sejour
+
+### Créer un séjour 
+# @name createSejour
+@villeId = {{createVille.response.body.$.id}}
+POST http://localhost:3000/sejour HTTP/1.1
+content-type: application/json
+
+{
+  "nom": "Sefari Massai",
+  "VilleId": "{{villeId}}"
+}
+
+### Modifier un séjour
+@sejourId = {{createSejour.response.body.$.id}}
+PUT http://localhost:3000/sejour/{{sejourId}} HTTP/1.1
+content-type: application/json
+
+{
+  "nom": "Safari Massai Mara"
+}
+
+### Récupérer un séjour
+
+@sejourId = {{createSejour.response.body.$.id}}
+GET http://localhost:3000/sejour/{{sejourId}} HTTP/1.1
+
+### Supprimer un séjour
+@sejourId = {{createSejour.response.body.$.id}}
+DELETE http://localhost:3000/sejour/{{sejourId}} HTTP/1.1
+
+### 

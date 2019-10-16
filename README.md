@@ -1,0 +1,1 @@
+Example of Rest API with Sequelize (ORM Mysql) and Express.js
